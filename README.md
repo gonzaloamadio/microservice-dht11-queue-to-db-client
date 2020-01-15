@@ -2,7 +2,8 @@
 
 Follow this tutorial : [Tutorial](https://www.cloudamqp.com/blog/2019-09-11-a-developers-guide-through-the-microservice-jungle.html)
 
-But I replaced the raspberry pi script, with a python script, as I do not have a raspberry.
+I do not have a raspberry, so there is a flag in the script in order to generate random data.
+(There is a flag on the script)
 
 For this, I followed: [Doc](https://www.cloudamqp.com/docs/python.html)
 
@@ -14,20 +15,15 @@ For this, I followed: [Doc](https://www.cloudamqp.com/docs/python.html)
 - RabbitQM
 - ElephantSQL (PostgreSQL)
 
-# Heroku
-
-## Add env variables
-
-[Doc of how to add an ENV variable](https://devcenter.heroku.com/articles/config-vars)
-
-```
-heroku config:set GITHUB_USERNAME=joesmith
-heroku config
-```
-
 # Usage
 
-To use it locally, you can run in different terminals the python microservices.
+## Run microservices to generate and store data
+
+This two files are in the following repository:
+[repo](https://github.com/gonzaloamadio/microservice-dht11-queue-to-db)
+
+To use microservice01 (generate data) and microservice02 (store data in DB) 
+locally, run in different terminals both files
 
 ```
 $ python microservice01-raspberry.py
@@ -47,3 +43,9 @@ PostgreSQL connection is closed
 1 Record inserted successfully into weather table
 PostgreSQL connection is closed
 ```
+
+## Run microservice to show data
+
+It is a simple web done in Flask to show data. Deployed to Heroku
+
+https://mytemperature--itegram.herokuapp.com/
